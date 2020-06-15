@@ -33,7 +33,7 @@ sap.ui.define([
 		},
 
 		onSave: function (oevt) {
-			debugger;
+		
 
 			if (this.byId("aadharNo").getValue().length === 12) {
 				this.byId("aadharNo").setValueState(sap.ui.core.ValueState.None);
@@ -45,31 +45,6 @@ sap.ui.define([
 			}
 		}
 
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf com.app.tax.TaxApp-alpha.view.userBasicInfo
-		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf com.app.tax.TaxApp-alpha.view.userBasicInfo
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf com.app.tax.TaxApp-alpha.view.userBasicInfo
-		 */
-		//	onExit: function() {
-		//
-		//	}
 
 	});
 
