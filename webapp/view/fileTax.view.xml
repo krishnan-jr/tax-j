@@ -1,0 +1,310 @@
+<mvc:View height="100%" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="com.app.tax.TaxApp-alpha.controller.fileTax" xmlns:html="http://www.w3.org/1999/xhtml">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="CreateProductWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
+						<!--###############################################################################################-->
+						<WizardStep id="ProductTypeStep" title="General Information" validated="true">
+							<VBox class="sapUiSmallMargin">
+								<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
+									columnsXL="2" labelSpanL="3.5" emptySpanL="4" columnsL="1" labelSpanM="2" emptySpanM="1" columnsM="1" labelSpanS="12" emptySpanS="0"
+									singleContainerFullSize="false" ariaLabelledBy="Title1">
+									<f:content>
+										<Label text="Name"/>
+										<Text text="First Name">
+											<layoutData>
+												<l:GridData span="XL2 L2 M3 S4"/>
+											</layoutData>
+										</Text>
+										<!--<Input id="nameFirst" placeholder="First Name">-->
+										<!--	<layoutData>-->
+										<!--		<l:GridData span="XL2 L2 M3 S4"/>-->
+										<!--	</layoutData>-->
+										<!--</Input>-->
+										<Text text="Middle Name">
+											<layoutData>
+												<l:GridData span="XL2 L2 M3 S4"/>
+											</layoutData>
+										</Text>
+										<Text text="Last Name">
+											<layoutData>
+												<l:GridData span="XL2 L2 M3 S4"/>
+											</layoutData>
+										</Text>
+										<!--<Input id="nameLast" placeholder="Last Name" required="true">-->
+										<!--	<layoutData>-->
+										<!--		<l:GridData span="XL2 L2 M3 S4"/>-->
+										<!--	</layoutData>-->
+										<!--</Input>-->
+										<!--Date Of Birth-->
+										<Label text="Date Of Birth"/>
+										<!--HARDCODED-->
+										<Text text="{dateofbirth}04-11-1996"/>
+										<!--gender-->
+										<Label text="Gender"/>
+										<!--HARDCODED-->
+										<Text text="{gender}"/>
+										<!--email-->
+										<Label text="E-mail"/>
+										<!--HARDCODED-->
+										<Text text="{email}something@email.com"/>
+										<!--phone no-->
+										<Label text="Mobile No"/>
+										<!--HARDCODED-->
+										<Text text="{phone}9400176157"/>
+										<Label text="Pan No"/>
+										<!--HARDCODED-->
+										<Text text="{pan}9400176157"/>
+										<Label text="Aadhaar Number"/>
+										<!--HARDCODED-->
+										<Text text="{aadhar}(XXXX-XXXX-XXXX)"/>
+										<!--address-->
+										<Label text="Permanent Address"/>
+										<!--HARDCODED-->
+										<Text text="{line1}Flat/Door/Block No {line2}Premises/Building/Village"/>
+										<Label/>
+										<!--HARDCODED-->
+										<Text text="{line3}Road/Street/Post Office {line4}Area/Locality"/>
+										<!--Town/City/District-->
+										<Label/>
+										<!--HARDCODED-->
+										<Text text="{town}Town/City/District {pincode}Pincode"/>
+										<!--State-->
+										<Label/>
+										<!--HARDCODED-->
+										<Text text="{State}State"/>
+										<Label/>
+										<Text text="{Country}India"/>
+									</f:content>
+								</f:SimpleForm>
+							</VBox>
+						</WizardStep>
+						<!--#############################################Employement##################################################-->
+						<WizardStep id="ProductInfoStep" validated="true" title="Employement" activate="additionalInfoValidation">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Label text="Nature of Employment" required="true"/>
+									<Select selectedKey="{/employement}">
+										<core:Item key="Na" text="Not Applicable (eg. Family pension etc)"/>
+										<core:Item key="gov" text="Government"/>
+										<core:Item key="pub" text="Public Sector Undertaking"/>
+										<core:Item key="oth" text="Others"/>
+										<core:Item key="pen" text="Pensioners"/>
+									</Select>
+									<Label/>
+									<RadioButtonGroup id="file" columns="4">
+										<RadioButton text="Filed U/S" id="RB1"/>
+										<RadioButton text="Filed in response to notice U/S" id="RB5"/>
+									</RadioButtonGroup>
+									<Label text="Filing"/>
+									<Select selectedKey="{/file}">
+										<core:Item key="select" text="Select"/>
+										<core:Item key="139" text="139(9)"/>
+										<core:Item key="142" text="142(1)"/>
+										<core:Item key="148" text="148"/>
+										<core:Item key="153A" text="153A"/>
+										<core:Item key="153C" text="153C"/>
+									</Select>
+								</f:content>
+							</f:SimpleForm>
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Text text="If revised/defective" class="bold18">
+										<layoutData>
+											<l:GridData span="XL12 L12 M12 S12"/>
+										</layoutData>
+									</Text>
+									<Label text="Receipt Number"/>
+									<Input id="receipt"></Input>
+									<Label text="Date of Filing Original Return"/>
+									<Input id="date1"></Input>
+									<Text text="If filed in response to notice u/s 139(9)/142(1)/148/153A/153C or order u/s 119(2)(b)" class="bold18">
+										<layoutData>
+											<l:GridData span="XL12 L12 M12 S12"/>
+										</layoutData>
+									</Text>
+									<Label text="Unique Number "/>
+									<Input id="receipt2"></Input>
+									<Label text="Date of such Notice or Order"/>
+									<Input id="date2"></Input>
+									<!--			<Input valueStateText="Enter 6 symbols or more" valueState="{/productNameState}" id="ProductName" liveChange="additionalInfoValidation"-->
+									<!--				placeholder="Enter name with length greater than 6" value="{/productName}"/>-->
+									<!--			<Label text="Weight" required="true"/>-->
+									<!--			<Input valueStateText="Enter digits" valueState="{/productWeightState}" id="ProductWeight" liveChange="additionalInfoValidation"-->
+									<!--				type="Number" placeholder="Enter digits" value="{/productWeight}"/>-->
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+						<!--#############################################salary##################################################-->
+						<WizardStep id="OptionalInfoStep" validated="true" activate="optionalStepActivation" title=" Salary/Pension">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Text text="i.Gross Salary" class="bold18">
+										<!--<layoutData>-->
+										<!--	<l:GridData span="XL12 L12 M12 S12"/>-->
+										<!--</layoutData>-->
+									</Text>
+									<!--<Label text="i.Gross Salary" id="label_name" width="100%"/>-->
+									<Input id="gsal" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" a. Salary as per section 17(1)" id="label_sala"/>
+									<Input id="sala" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" b. Value of perquisites as per section 17(2)" id="label_salb"/>
+									<Input id="salb" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" c. Profits in lieu of salary as per section 17(3)" id="label_salc"/>
+									<Input id="salc" placeholder="0.00" type="Number" width="50%"/>
+									<!--<Text class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop bold18" maxLines="2"-->
+									<!--	text="ii.Less:Allowances to the extent exempt u/s 10(Ensure that it is included in salary income u/s 17(1)/17(2)/17(3) )"></Text>-->
+									<Label text="iii. Net Salary (i-ii)" id="label_nets"/>
+									<!--<Text text="iii.Net Salary (i-ii)" class="bold18">-->
+									<!--	<layoutData>-->
+									<!--		<l:GridData span="XL12 L12 M12 S12"/>-->
+									<!--	</layoutData>-->
+									<!--</Text>-->
+									<Input id="nsal" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="iv.Deductions u/s 16(iva + ivb + iv6)" id="label_ded"/>
+									<Input id="ded" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" a. Standard Deduction u/s 16(ia)" id="label_stded"/>
+									<Input id="stded" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" b.Entertainment Allowance u/s 16(ii)" id="label_eallw"/>
+									<Input id="eallw" placeholder="0.00" type="Number" width="50%"/>
+									<Label text=" c.Professional Tax u/s 16(iii)" id="label_ptax"/>
+									<Input id="ptax" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="v. Income chargeable under the Head 'Salaries'(iii-iv)" id="label_incc"/>
+									<Input id="incc" placeholder="0.00" type="Number" width="50%"/>
+								</f:content>
+							</f:SimpleForm>
+							<!--		<MessageStrip class="sapUiSmallMarginBottom"-->
+							<!--			text="You can validate steps by default with the validated='true' property of the step. The next button is always enabled." showIcon="true"/>-->
+							<!--		<Text-->
+							<!--			text="Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec ppellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien corper eu, posuere malesuada nisl. Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien "/>-->
+							<!--		<form:SimpleForm editable="true">-->
+							<!--			<Label text="Cover photo"/>-->
+							<!--			<u:FileUploader width="100%" tooltip="Upload product cover photo to the local server" style="Emphasized"-->
+							<!--				placeholder="Choose a file for Upload..."/>-->
+							<!--			<Label text="Manufacturing date"/>-->
+							<!--			<DatePicker id="DP3" displayFormat="short" value="{/manufacturingDate}"/>-->
+							<!--			<Label text="Availability"/>-->
+							<!--			<SegmentedButton selectedKey="{/availabilityType}">-->
+							<!--				<items>-->
+							<!--					<SegmentedButtonItem key="In store" text="In store"/>-->
+							<!--					<SegmentedButtonItem key="In depot" text="In depot"/>-->
+							<!--					<SegmentedButtonItem key="In repository" text="In repository"/>-->
+							<!--					<SegmentedButtonItem key="Out of stock" text="Out of stock"/>-->
+							<!--				</items>-->
+							<!--			</SegmentedButton>-->
+							<!--			<Label text="Size"/>-->
+							<!--			<Input value="{/size}"/>-->
+							<!--			<ComboBox maxWidth="100px" selectedKey="{/measurement}">-->
+							<!--				<core:Item key="X" text="X"/>-->
+							<!--				<core:Item key="Y" text="Y"/>-->
+							<!--				<core:Item key="Z" text="Z"/>-->
+							<!--			</ComboBox>-->
+							<!--		</form:SimpleForm>-->
+							<!--	</WizardStep>-->
+							<!--	<WizardStep id="PricingStep" activate="pricingActivate" complete="pricingComplete" validated="true" title="Pricing">-->
+							<!--		<MessageStrip class="sapUiSmallMarginBottom"-->
+							<!--			text="You can use the wizard previousStep() and nextStep() methods to navigate from step to step without validation. Also you can use the GoToStep(step) method to scroll programmatically to previously visited steps."-->
+							<!--			showIcon="true"/>-->
+							<!--		<form:SimpleForm editable="true">-->
+							<!--			<Label text="Price"/>-->
+							<!--			<Input value="{/productPrice}"/>-->
+							<!--			<Label text="Discount group"/>-->
+							<!--			<ComboBox selectedKey="{/discountGroup}">-->
+							<!--				<core:Item key="Kids" text="Kids"/>-->
+							<!--				<core:Item key="Teens" text="Teens"/>-->
+							<!--				<core:Item key="Adults" text="Adults"/>-->
+							<!--				<core:Item key="Elderly" text="Elderly"/>-->
+							<!--			</ComboBox>-->
+							<!--			<Label text=" VAT is included"/>-->
+							<!--			<CheckBox selected="{/productVAT}"/>-->
+							<!--		</form:SimpleForm>-->
+						</WizardStep>
+						<!--#############################################House Property##################################################-->
+						<WizardStep id="housePropertyStep" validated="true" activate="housePropertyStep" title=" House Property">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Label text="Type of House Property" id="label_htyp"/>
+									<ComboBox id="htyp" width="50%">
+										<core:Item key="1" text="Self Occupied"/>
+										<core:Item key="2" text="Let Out"/>
+										<core:Item key="3" text="Deemed Let Out"/>
+									</ComboBox>
+									<Label text="i.Gross rent recieved/recievable/letable value during the year" id="label_grent"/>
+									<Input id="grent" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="ii.Tax paid to local authorities" id="label_lotax"/>
+									<Input id="lotax" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="iii.Annual Value (i-ii)" id="label_aval"/>
+									<Input id="aval" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="iv.30% of Annual Value" id="label_thaval"/>
+									<Input id="thaval" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="v.Interest payable on borrowed capital" id="label_intp"/>
+									<Input id="intp" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="vi. Arrears/Unrealized Rent recieved during the year Less 30%" id="label-arrent"/>
+									<Input id="arrent" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="vii. Income chargeable under the head 'House Property' (iii-iv-v)+vi" id="label_inchp"/>
+									<Input id="inchp" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Less: Deductions u/s 57(iia) (In case of family pension only" id="label_osded"/>
+									<Input id="osded" placeholder="0.00" type="Number"/>
+									<Label text="4.Gross Total Income(If loss, put the figure in negative) (1+2+3)" id="label_gtinco"/>
+									<Input id="gtinco" placeholder="0.00" type="Number"/>
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+						<WizardStep id="deductionsStep" validated="false" activate="deductionsStep" title="Deductions">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Label text="Total Income (4-6)" id="label_totinc"/>
+									<Input id="totinc" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Tax Payable on Total Income" id="label_taxpay"/>
+									<Input id="taxpay" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Rebate u/s 87A" id="label_rebate"/>
+									<Input id="rebate" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Tax Payable After Rebate (8-9)" id="label_tpaftrbt"/>
+									<Input id="tpaftrbt" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Health and Education Cess @4% on (10)" id="label_hcess"/>
+									<Input id="hcess" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Tax and Cess (10+11)" id="label_ttaxcess"/>
+									<Input id="ttaxcess" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Relief u/s 89(Please ensure to submit Form 10E to claim this relief)" id="label_relf"/>
+									<Input id="relf" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Balance Tax after Relief(12-13)" id="label_baltax"/>
+									<Input id="baltax" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 A" id="label_intrsta"/>
+									<Input id="intrsta" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 B" id="label_intrstb"/>
+									<Input id="intrstb" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 C" id="label_intrstc"/>
+									<Input id="intrstc" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Fee u/s 234F" id="label_fee"/>
+									<Input id="fee" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Interest, Fee Payable (15a + 15b + 15c + 15d)" id="label_totint"/>
+									<Input id="totint" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Tax, Fee and Interest" id="label_tottax"/>
+									<Input id="tottax" placeholder="0.00" type="Number" width="50%"/>
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

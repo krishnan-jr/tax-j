@@ -1,0 +1,203 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.app.tax.TaxApp-alpha.controller.userBasicInfo">
+	<!--	<App>
+		<pages> -->
+	<Page showHeader="true" title="Welcome to ETaxing System" showSubHeader="false" showNavButton="true">
+		<headerContent>
+			<Button icon="sap-icon://save" text="Save" type="Emphasized" id="btnUser" press="onSave"/>
+		</headerContent>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
+					columnsXL="2" labelSpanL="3.5" emptySpanL="4" columnsL="1" labelSpanM="2" emptySpanM="1" columnsM="1" labelSpanS="12" emptySpanS="0"
+					singleContainerFullSize="false" ariaLabelledBy="Title1">
+					<f:toolbar>
+						<Toolbar id="TB1">
+							<Title id="Title1" text="General Information"/>
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<!--basic info start-->
+						<Toolbar ariaLabelledBy="Title2">
+							<Title id="Title2" text="Basic Info"/>
+						</Toolbar>
+						<!--name block-->
+						<Label text="Name"/>
+						<Input id="nameFirst" placeholder="First Name">
+							<layoutData>
+								<l:GridData span="XL2 L2 M3 S4"/>
+							</layoutData>
+						</Input>
+						<Input id="nameMiddle" placeholder="Middle Name">
+							<layoutData>
+								<l:GridData span="XL2 L2 M3 S4"/>
+							</layoutData>
+						</Input>
+						<Input id="nameLast" placeholder="Last Name" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M3 S4"/>
+							</layoutData>
+						</Input>
+						<!--Date Of Birth-->
+						<Label text="Date Of Birth"/>
+						<DatePicker placeholder="DD-MM-YYYY" id="picker0" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M3 S4"/>
+							</layoutData>
+						</DatePicker>
+						<!--gender-->
+						<Label text="Gender"/>
+						<RadioButtonGroup columns="4" id="gender">
+							<buttons>
+								<RadioButton text="Male" id="RB1"/>
+								<RadioButton text="Female" id="RB2"/>
+								<RadioButton text="Others" id="RB3"/>
+							</buttons>
+						</RadioButtonGroup>
+						<!--contact info block-->
+						<Toolbar ariaLabelledBy="Title3">
+							<Title id="Title3" text="Contact Info"/>
+						</Toolbar>
+						<!--email-->
+						<Label text="E-mail"/>
+						<Input placeholder="Email address" type="Email" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L3 M6 S8"/>
+							</layoutData>
+						</Input>
+						<!--phone no-->
+						<Label text="Mobile No"/>
+						<Input placeholder="+91-XXX-XXX-XXXX" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L3 M6 S8"/>
+							</layoutData>
+						</Input>
+						<!--aadhar pan info block-->
+						<Toolbar ariaLabelledBy="Title4">
+							<Title id="Title4" text="PAN - Aadhar No"/>
+						</Toolbar>
+						<!--pan card-->
+						<Label text="Pan No"/>
+						<Input placeholder="Pan ID(AAAPL1234C)" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L3 M6 S4"/>
+							</layoutData>
+						</Input>
+						<!--aadhar block begins here-->
+						<!--RadioButton saying if u have aadhar or not-->
+						<Label text="Do you have a Aadhar Card"/>
+						<RadioButtonGroup id="aadhar" columns="2" select="handleR2">
+							<RadioButton text="Yes" id="RB4" select='ay' />
+							<RadioButton text="No" id="RB5" select='an'/>
+						</RadioButtonGroup>
+						<!--Aadhaar Number-->
+						<Label text="Aadhaar Number"/>
+						<Input placeholder="12 Digits (XXXX-XXXX-XXXX)" id="aadharNo" type="Number">
+							<layoutData>
+								<l:GridData span="XL2 L3 M6 S4"/>
+							</layoutData>
+						</Input>
+						<!--Aadhaar Enrolment Id-->
+						<Label text="Aadhaar Enrolment Id"/>
+						<Input placeholder="(XXXX-XXXX-XXXX)" id="aadharEnrol">
+							<layoutData>
+								<l:GridData span="XL2 L3 M6 S4"/>
+							</layoutData>
+						</Input>
+						<!--Begin of address block-->
+						<Toolbar ariaLabelledBy="Title5">
+							<Title id="Title5" text="Address Info"/>
+						</Toolbar>
+						<!--Flat/Door/Block No-->
+						<Label text="Permanent Address"/>
+						<Input placeholder="Flat/Door/Block No" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L3 M5 S8"/>
+							</layoutData>
+						</Input>
+						<!--Name of Premises/Building/Village-->
+						<Input placeholder="Name of Premises/Building/Village">
+							<layoutData>
+								<l:GridData span="XL2 L3 M5 S8"/>
+							</layoutData>
+						</Input>
+						<Label/>
+						<!--Road/Street/Post Office-->
+						<Input placeholder="Road/Street/Post Office">
+							<layoutData>
+								<l:GridData span="XL2 L2 M5 S8"/>
+							</layoutData>
+						</Input>
+						<!--Area/Locality-->
+						<Input placeholder="Area/Locality" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M5 S8"/>
+							</layoutData>
+						</Input>
+						<!--Town/City/District-->
+						<Label/>
+						<Input placeholder="Town/City/District" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M5 S8"/>
+							</layoutData>
+						</Input>
+						<!--Pincode-->
+						<Input placeholder="Pincode" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M5 S8"/>
+							</layoutData>
+						</Input>
+						<!--State-->
+						<Label text="state"/>
+						<Select id="state" selectedKey="{/State}">
+							<core:Item text=" " key=""/>
+							<core:Item text="Andhra Pradesh" key="Andhra Pradesh"/>
+							<core:Item text="Arunachal Pradesh" key="Arunachal Pradesh"/>
+							<core:Item text="Assam " key="Assam"/>
+							<core:Item text="Bihar " key="Bihar"/>
+							<core:Item text="Chhattisgarh " key="Chhattisgarh"/>
+							<core:Item text="Goa " key="Goa"/>
+							<core:Item text="Gujarat " key="Gujarat"/>
+							<core:Item text="Haryana " key="Haryana"/>
+							<core:Item text="Himachal Pradesh" key="Himachal Pradesh"/>
+							<core:Item text="Jharkhand" key="Jharkhand"/>
+							<core:Item text="Karnataka " key="Karnataka"/>
+							<core:Item text="Kerala " key="Kerala"/>
+							<core:Item text="Madhya Pradesh " key="Madhya Pradesh"/>
+							<core:Item text="Maharashtra" key="Maharashtra"/>
+							<core:Item text="Manipur " key="Manipur"/>
+							<core:Item text="Meghalaya " key="Meghalaya"/>
+							<core:Item text="Mizoram" key="Mizoram"/>
+							<core:Item text="Nagaland " key="Nagaland"/>
+							<core:Item text="Odisha " key="Odisha"/>
+							<core:Item text="Punjab" key="Punjab"/>
+							<core:Item text="Rajasthan " key="Rajasthan"/>
+							<core:Item text="Sikkim " key="Sikkim "/>
+							<core:Item text="Tamil Nadu " key="Tamil Nadu"/>
+							<core:Item text="Telangana" key="Telangana"/>
+							<core:Item text="Tripura" key="Tripura"/>
+							<core:Item text="Uttarakhand " key="Uttarakhand"/>
+							<core:Item text="West Bengal" key="West Bengal"/>
+							
+						</Select>
+						<!--Town/City/District-->
+						<Label/>
+						<Input placeholder="Country" value="India" editable="false" required="true">
+							<layoutData>
+								<l:GridData span="XL2 L2 M5 S8"/>
+							</layoutData>
+						</Input>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button xmlns="sap.m" text="Logout" id="btnLogout" icon="sap-icon://log" type="Reject" tooltip="LogOut of the Systems"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+	<!--		</pages>
+	</App> -->
+</mvc:View>

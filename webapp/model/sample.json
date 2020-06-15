@@ -1,0 +1,28 @@
+{
+	"Admin": [{
+		"email": "jincemichael50@gmail.com",
+		"pass": "admin"
+	}, {
+		"email": "anoopkrishnanivl@gmail.com",
+		"pass": "admin"
+	}],
+
+	"Client": [{
+		"email": "jincemichael50@gmail.com",
+		"pass": "client",
+		"fname": "Jince",
+		"mname": "",
+		"lname": "Michael",
+		"dob": "",
+		"num": ""
+	}, {
+		"email": "anoopkrishnanivl@gmail.com",
+		"pass": "client",
+		"fname": "Anoop",
+		"mname": "",
+		"lname": "Krishnan",
+		"dob": "",
+		"num": ""
+
+	}]
+}

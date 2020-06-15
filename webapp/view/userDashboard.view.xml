@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.app.tax.TaxApp-alpha.controller.userDashboard">
+	<App>
+		<pages>
+			<Page showHeader="true" title="Welcome to ETaxing System" showSubHeader="false">
+				<headerContent>
+					<Button icon="sap-icon://employee" text="Welcome" type="Emphasized" id="btnUser"/>
+				</headerContent>
+				<content>
+					<HBox width="100%" id="hbox0" alignContent="Center" alignItems="Center" justifyContent="Center" backgroundDesign="Transparent" fitContainer="true">
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Edit or View Your Profile" press="action" id="tileProfile" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" action:wiring="\{'press':\{'navigation':\{'routeName':'userBasicInfo'\}\}\}">
+							<TileContent>
+								<ImageContent src="sap-icon://key-user-settings"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="File Your Income Tax" press="onTax">
+							<TileContent>
+								<ImageContent src="sap-icon://expense-report"/>
+							</TileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="View Your Previous Tax Returns" press="press">
+							<TileContent>
+								<ImageContent src="sap-icon://activities"/>
+							</TileContent>
+						</GenericTile>
+					</HBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" text="Logout" id="btnLogout" icon="sap-icon://log" type="Reject" tooltip="LogOut of the Systems"/>
+						
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
