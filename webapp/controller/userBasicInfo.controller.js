@@ -37,7 +37,7 @@ sap.ui.define([
 
 			if (this.byId("aadharNo").getValue().length === 12) {
 				this.byId("aadharNo").setValueState(sap.ui.core.ValueState.None);
-				// this.model.setValueState(sap.ui.core.ValueState.Error);
+				// this.model.setValueState(sap.ui.core.ValueState.Error)
 			} else {
 				this.byId("aadharNo").setValueState(sap.ui.core.ValueState.Error);
 				this.byId("aadharNo").setValueStateText("Aadhar number must be 12 Digits");
