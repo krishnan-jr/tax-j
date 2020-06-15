@@ -99,6 +99,13 @@
 					"target": [
 						"fileTax"
 					]
+				},
+				{
+					"name": "adminDash",
+					"pattern": "adminDash",
+					"target": [
+						"adminDash"
+					]
 				}
 			],
 			"targets": {
@@ -124,6 +131,10 @@
 				"fileTax": {
 					"viewType": "XML",
 					"viewName": "fileTax"
+				},
+				"adminDash": {
+					"viewType": "XML",
+					"viewName": "adminDash"
 				}
 			}
 		}
