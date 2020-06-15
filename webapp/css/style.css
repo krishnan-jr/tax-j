@@ -1,7 +1,23 @@
 /* Enter your custom styles here */
 
-.bold18{
+.bold18 {
     font-size: 16px;
-    font-weight:500;
+    font-weight: 500;
     margin-left: 60px;
+}
+
+.HBoxStyle {
+    margin-top: 1rem;
+}
+
+.leftVBoxStyle {
+    margin-left: 5px;
+}
+
+.rightVBoxStyle {
+    margin-right: 10rem;
+}
+.btnCls{
+	margin-top: 1.3rem;
+	margin-left: 10px;
 }

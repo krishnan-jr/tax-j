@@ -1,10 +1,32 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.app.tax.TaxApp-alpha.controller.adminDash"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
 			<Page title="Title">
 				<content>
-					<Input ></Input>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+						adjustLabelSpan="true" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+						singleContainerFullSize="false">
+						<f:content>
+							<HBox justifyContent="Center" class="HBoxStyl" width="100%">
+								<VBox class="leftVBoxStyle">
+									<Label text="First Name"/>
+									<Input value="{/fname}"/>
+								</VBox>
+								<VBox class="leftVBoxStyle">
+									<Label text="Email"/>
+									<Input value="{/email}"/>
+								</VBox>
+								<VBox class="leftVBoxStyle">
+									<Label text="Password"/>
+									<Input value="{/password}"/>
+								</VBox>
+								<VBox class="leftVBoxStyle btnCls">
+									<Button text="Add User" icon="sap-icon://add-employee" type="Emphasized"/>
+								</VBox>
+							</HBox>
+						</f:content>
+					</f:SimpleForm>
 				</content>
 			</Page>
 		</pages>
