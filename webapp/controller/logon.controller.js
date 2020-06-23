@@ -4,79 +4,77 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	'sap/ui/model/json/JSONModel',
 	'sap/m/MessageBox',
 	'sap/m/MessageToast'
-], function (Controller, SimpleType, ValidateException, JSONModel, MessageBox, MessageToast, ) {
+], function (Controller, SimpleType, ValidateException, JSONModel, MessageBox, MessageToast) {
 	"use strict";
 	return Controller.extend("com.app.tax.TaxApp-alpha.controller.logon", {
-			onInit: function () {
-				this.oView = this.getView();
-				this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-				var oModel = new sap.ui.model.json.JSONModel();
-				oModel.loadData("model/sample.json");
-				this.oView.setModel(oModel, "localData");
+		onInit: function () {
+			this.oView = this.getView();
+			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-				// this.oView.setModel(new JSONModel({
-				// 	//	name: "",
-				// 	email: ""
-				// }));
+			this.oModel = this.getOwnerComponent().getModel("login");
+			this.getView().setModel(this.oModel, "logins");
 
-				// attach handlers for validation errors
-				//	sap.ui.getCore().getMessageManager().registerObject(this.oView.byId("nameInput"), true);
-				sap.ui.getCore().getMessageManager().registerObject(this.oView.byId("emailInput"), true);
+		},
+		_validateInput: function (oInput) {
+			var oBinding = oInput.getBinding("value");
+			var sValueState = "None";
+			var bValidationError = false;
 
-			},
-			_validateInput: function (oInput) {
-				var oBinding = oInput.getBinding("value");
-				var sValueState = "None";
-				var bValidationError = false;
+			try {
+				oBinding.getType().validateValue(oInput.getValue());
+			} catch (oException) {
+				//sValueState = "Error";
+				bValidationError = true;
+			}
+			oInput.setValueState(sValueState);
 
-				try {
-					oBinding.getType().validateValue(oInput.getValue());
-				} catch (oException) {
-					//sValueState = "Error";
-					bValidationError = true;
-				}
-				oInput.setValueState(sValueState);
+			return bValidationError;
+		},
 
-				return bValidationError;
-			},
+		onContinue: function () {
+			var filter = new Array();
+			var FilterVal;
+			
+			var checked = this.oView.byId("CH1").getSelected();
+			var that = this;
 
-			onContinue: function () {
-				// collect input controls
-				var json = this.getView().getModel("localData").getData();
-				var mailid = this.getView().byId("emailInput").getValue();
-				var password = this.getView().byId("ipass").getValue();
-				var check = json.Admin.filter(a => a.email == mailid && a.pass == password).length;
-				var check1 = json.Client.filter(b => b.email == mailid && b.pass == password).length;
-				var oView = this.getView();
-				var aInputs = [
-					oView.byId("emailInput"),
-					oView.byId("ipass")
-				];
-				var bValidationError = false;
+			var mailid = this.getView().byId("emailInput").getValue();
+			var password = this.getView().byId("ipass").getValue();
 
-				// check that inputs are not empty
-				// this does not happen during data binding as this is only triggered by changes
-				aInputs.forEach(function (oInput) {
-					bValidationError = this._validateInput(oInput) || bValidationError;
-				}, this);
+			FilterVal = new sap.ui.model.Filter("email", sap.ui.model.FilterOperator.EQ, mailid);
+			filter.push(FilterVal);
+			FilterVal = new sap.ui.model.Filter("password", sap.ui.model.FilterOperator.EQ, password);
+			filter.push(FilterVal);
 
-				// output result
-				if (!bValidationError) {
-					MessageBox.alert("A validation error has occured. Complete your input first");
-
-				} else {
-					if (check1 === 1) {
-						this.oRouter.navTo("userDashboard");
+			if (checked) {
+				this.oModel.read('/Cadmin', {
+					filters: filter,
+					success: function (getData) {
+						if (getData.results.length > 0) {
+							that.oRouter.navTo('adminDash');
+						} else {
+							MessageBox.alert("Incorrect Password");
+						}
+					},
+					error: function () {
 					}
-					else if(check === 1) {
-						this.oRouter.navTo("adminDash");
+				});
+			} else {
+				this.oModel.read('/Cclient', {
+					filters: filter,
+					success: function (getData) {
+						if (getData.results.length > 0) {
+							that.oRouter.navTo('userDashboard');
+						} else {
+							MessageBox.alert("Incorrect Password");
+						}
+					},
+					error: function () {
 
-					} else {
-						MessageBox.alert("Your credentials are incorrect");
 					}
-
-				}
-			},
+				});
+			}
+		},
 		// },
 		/**
 		 *@memberOf com.app.tax.TaxApp-alpha.controller.logon

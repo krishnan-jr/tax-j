@@ -36,6 +36,14 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/slogin",
+      "target": {
+        "type": "destination",
+        "name": "slogin"
+      },
+      "description": "service for login"
     }
   ],
   "sendWelcomeFileRedirect": true

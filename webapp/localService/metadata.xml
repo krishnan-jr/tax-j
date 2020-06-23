@@ -1,0 +1,12 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Logon">
+			<EntityType Name="Cadmin">
+				<Key><PropertyRef Name="email"/></Key><Property Name="email" Type="Edm.String" Nullable="false"/><Property Name="password" Type="Edm.String"/></EntityType>
+			<EntityType Name="Cclient">
+				<Key><PropertyRef Name="email"/></Key><Property Name="email" Type="Edm.String" Nullable="false"/><Property Name="password" Type="Edm.String"/></EntityType>
+			<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true"><EntitySet Name="Cadmin" EntityType="Logon.Cadmin"/><EntitySet Name="Cclient" EntityType="Logon.Cclient"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
