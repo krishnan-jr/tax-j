@@ -10,7 +10,7 @@
 			<VBox class="sapUiSmallMargin">
 				<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
 					columnsXL="2" labelSpanL="3.5" emptySpanL="4" columnsL="1" labelSpanM="2" emptySpanM="1" columnsM="1" labelSpanS="12" emptySpanS="0"
-					singleContainerFullSize="false" ariaLabelledBy="Title1">
+					singleContainerFullSize="false" ariaLabelledBy="Title1" >
 					<f:toolbar>
 						<Toolbar id="TB1">
 							<Title id="Title1" text="General Information"/>
@@ -23,7 +23,7 @@
 						</Toolbar>
 						<!--name block-->
 						<Label text="Name"/>
-						<Input id="nameFirst" placeholder="First Name">
+						<Input value="{userData>/email}" id="nameFirst" placeholder="First Name">
 							<layoutData>
 								<l:GridData span="XL2 L2 M3 S4"/>
 							</layoutData>

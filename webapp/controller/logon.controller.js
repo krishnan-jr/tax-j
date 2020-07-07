@@ -14,6 +14,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			this.oModel = this.getOwnerComponent().getModel("login");
 			this.getView().setModel(this.oModel, "logins");
 
+			var localModel = new sap.ui.model.json.JSONModel();
+			localModel.loadData("model/sample.json");
+			this.oView.setModel(localModel, "localData");
+
 		},
 		_validateInput: function (oInput) {
 			var oBinding = oInput.getBinding("value");
@@ -34,7 +38,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		onContinue: function () {
 			var filter = new Array();
 			var FilterVal;
-			
+
 			var checked = this.oView.byId("CH1").getSelected();
 			var that = this;
 
@@ -56,14 +60,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 							MessageBox.alert("Incorrect Password");
 						}
 					},
-					error: function () {
-					}
+					error: function () {}
 				});
 			} else {
 				this.oModel.read('/Cclient', {
 					filters: filter,
 					success: function (getData) {
 						if (getData.results.length > 0) {
+							that.getOwnerComponent().getModel("userData").setData(getData.results[0]);
 							that.oRouter.navTo('userDashboard');
 						} else {
 							MessageBox.alert("Incorrect Password");

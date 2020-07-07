@@ -21,8 +21,18 @@ sap.ui.define([
 		onInit: function () {
 			this.byId("aadharNo").setEnabled(true);
 			this.byId("aadharEnrol").setEnabled(false);
+			// this.BondHdr = {};
+			// this.BondHdr = this.getOwnerComponent().getModel("userData").getData();
+			this.oModel1 = this.getOwnerComponent().getModel("userData");
+			this.getView().setModel(this.oModel1, "userData");
 
 		},
+		// initialize: function () {
+
+		// 	this.oModel1 = this.getOwnerComponent().getModel("userData");
+		// 	this.getView().setModel(this.oModel1, "userData");
+		// 	this.email = this.oModel1.email;
+		// },
 		ay: function (oEvent) {
 			this.byId("aadharNo").setEnabled(true);
 			this.byId("aadharEnrol").setEnabled(false);
@@ -33,7 +43,6 @@ sap.ui.define([
 		},
 
 		onSave: function (oevt) {
-		
 
 			if (this.byId("aadharNo").getValue().length === 12) {
 				this.byId("aadharNo").setValueState(sap.ui.core.ValueState.None);
@@ -41,10 +50,9 @@ sap.ui.define([
 			} else {
 				this.byId("aadharNo").setValueState(sap.ui.core.ValueState.Error);
 				this.byId("aadharNo").setValueStateText("Aadhar number must be 12 Digits");
-				
+
 			}
 		}
-
 
 	});
 

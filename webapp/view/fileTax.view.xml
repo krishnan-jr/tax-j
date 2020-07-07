@@ -143,89 +143,64 @@
 						</WizardStep>
 						<!--#############################################salary##################################################-->
 						<WizardStep id="OptionalInfoStep" validated="true" activate="optionalStepActivation" title=" Salary/Pension">
-							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-								singleContainerFullSize="false">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsM="2" labelSpanM="6" emptySpanM="1" emptySpanL="1" columnsL="2"
+								labelSpanL="6">
 								<f:content>
-									<Text text="i.Gross Salary" class="bold18">
-										<!--<layoutData>-->
-										<!--	<l:GridData span="XL12 L12 M12 S12"/>-->
-										<!--</layoutData>-->
-									</Text>
-									<!--<Label text="i.Gross Salary" id="label_name" width="100%"/>-->
-									<Input id="gsal" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" a. Salary as per section 17(1)" id="label_sala"/>
-									<Input id="sala" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" b. Value of perquisites as per section 17(2)" id="label_salb"/>
-									<Input id="salb" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" c. Profits in lieu of salary as per section 17(3)" id="label_salc"/>
-									<Input id="salc" placeholder="0.00" type="Number" width="50%"/>
+									<core:Title text="1.Gross Salary"/>
+									<Label text="a. Salary as per section 17(1)" id="label_sala"/>
+									<Input id="sala" placeholder="0.00" type="Number"/>
+									<Label text="b. Value of perquisites as per section 17(2)" id="label_salb"/>
+									<Input id="salb" placeholder="0.00" type="Number"/>
+									<Label text="c. Profits in lieu of salary as per section 17(3)" id="label_salc"/>
+									<Input id="salc" placeholder="0.00" type="Number"/>
+									<Label text="Gross Salary (1a+1b+1c)" id="label_name" class="bold"/>
+									<Input id="gsal" placeholder="0.00" type="Number"/>
 									<!--<Text class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop bold18" maxLines="2"-->
 									<!--	text="ii.Less:Allowances to the extent exempt u/s 10(Ensure that it is included in salary income u/s 17(1)/17(2)/17(3) )"></Text>-->
-									<Label text="iii. Net Salary (i-ii)" id="label_nets"/>
-									<!--<Text text="iii.Net Salary (i-ii)" class="bold18">-->
-									<!--	<layoutData>-->
-									<!--		<l:GridData span="XL12 L12 M12 S12"/>-->
-									<!--	</layoutData>-->
-									<!--</Text>-->
-									<Input id="nsal" placeholder="0.00" type="Number" width="50%"/>
-									<Label text="iv.Deductions u/s 16(iva + ivb + iv6)" id="label_ded"/>
-									<Input id="ded" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" a. Standard Deduction u/s 16(ia)" id="label_stded"/>
-									<Input id="stded" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" b.Entertainment Allowance u/s 16(ii)" id="label_eallw"/>
-									<Input id="eallw" placeholder="0.00" type="Number" width="50%"/>
-									<Label text=" c.Professional Tax u/s 16(iii)" id="label_ptax"/>
-									<Input id="ptax" placeholder="0.00" type="Number" width="50%"/>
-									<Label text="v. Income chargeable under the Head 'Salaries'(iii-iv)" id="label_incc"/>
-									<Input id="incc" placeholder="0.00" type="Number" width="50%"/>
+									<core:Title text="2.Deductions"/>
+									<Label text="a. Standard Deduction u/s 16(ia)" id="label_stded"/>
+									<Input id="stded" placeholder="0.00" type="Number"/>
+									<Label text="b.Entertainment Allowance u/s 16(ii)" id="label_eallw"/>
+									<Input id="eallw" placeholder="0.00" type="Number"/>
+									<Label text="c.Professional Tax u/s 16(iii)" id="label_ptax"/>
+									<Input id="ptax" placeholder="0.00" type="Number"/>
+									<!--<Label text="v. Income chargeable under the Head 'Salaries'(iii-iv)" id="label_incc"/>-->
+									<!--<Input id="incc" placeholder="0.00" type="Number"/>-->
+									<Label text="Deductions u/s 16(2a+2b+2c)" id="label_ded" class="bold"/>
+									<Input id="ded" placeholder="0.00" type="Number"/>
 								</f:content>
 							</f:SimpleForm>
-							<!--		<MessageStrip class="sapUiSmallMarginBottom"-->
-							<!--			text="You can validate steps by default with the validated='true' property of the step. The next button is always enabled." showIcon="true"/>-->
-							<!--		<Text-->
-							<!--			text="Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec ppellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien corper eu, posuere malesuada nisl. Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien "/>-->
-							<!--		<form:SimpleForm editable="true">-->
-							<!--			<Label text="Cover photo"/>-->
-							<!--			<u:FileUploader width="100%" tooltip="Upload product cover photo to the local server" style="Emphasized"-->
-							<!--				placeholder="Choose a file for Upload..."/>-->
-							<!--			<Label text="Manufacturing date"/>-->
-							<!--			<DatePicker id="DP3" displayFormat="short" value="{/manufacturingDate}"/>-->
-							<!--			<Label text="Availability"/>-->
-							<!--			<SegmentedButton selectedKey="{/availabilityType}">-->
-							<!--				<items>-->
-							<!--					<SegmentedButtonItem key="In store" text="In store"/>-->
-							<!--					<SegmentedButtonItem key="In depot" text="In depot"/>-->
-							<!--					<SegmentedButtonItem key="In repository" text="In repository"/>-->
-							<!--					<SegmentedButtonItem key="Out of stock" text="Out of stock"/>-->
-							<!--				</items>-->
-							<!--			</SegmentedButton>-->
-							<!--			<Label text="Size"/>-->
-							<!--			<Input value="{/size}"/>-->
-							<!--			<ComboBox maxWidth="100px" selectedKey="{/measurement}">-->
-							<!--				<core:Item key="X" text="X"/>-->
-							<!--				<core:Item key="Y" text="Y"/>-->
-							<!--				<core:Item key="Z" text="Z"/>-->
-							<!--			</ComboBox>-->
-							<!--		</form:SimpleForm>-->
-							<!--	</WizardStep>-->
-							<!--	<WizardStep id="PricingStep" activate="pricingActivate" complete="pricingComplete" validated="true" title="Pricing">-->
-							<!--		<MessageStrip class="sapUiSmallMarginBottom"-->
-							<!--			text="You can use the wizard previousStep() and nextStep() methods to navigate from step to step without validation. Also you can use the GoToStep(step) method to scroll programmatically to previously visited steps."-->
-							<!--			showIcon="true"/>-->
-							<!--		<form:SimpleForm editable="true">-->
-							<!--			<Label text="Price"/>-->
-							<!--			<Input value="{/productPrice}"/>-->
-							<!--			<Label text="Discount group"/>-->
-							<!--			<ComboBox selectedKey="{/discountGroup}">-->
-							<!--				<core:Item key="Kids" text="Kids"/>-->
-							<!--				<core:Item key="Teens" text="Teens"/>-->
-							<!--				<core:Item key="Adults" text="Adults"/>-->
-							<!--				<core:Item key="Elderly" text="Elderly"/>-->
-							<!--			</ComboBox>-->
-							<!--			<Label text=" VAT is included"/>-->
-							<!--			<CheckBox selected="{/productVAT}"/>-->
-							<!--		</form:SimpleForm>-->
+							<!--#########################################Table control#######################################################-->
+							<Table id="ins" items="{/Products}">
+								<columns>
+									<Column width="10%">
+										<Text text="SL.NO"/>
+									</Column>
+									<Column width="40%">
+										<Text text="Nature of Exempt Allowance"/>
+									</Column>
+									<Column width="30%">
+										<Text text="Description"/>
+									</Column>
+									<Column width="15%">
+										<Text text="Amount"/>
+									</Column>
+									<Column width="5%"></Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<!--<Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>-->
+											<Input value="{slno}"/>
+											<Input value="{nat}"/>
+											<Input value="{desc}"/>
+											<Input value="{amt}"/>
+											<Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<Button icon="sap-icon://add" text="Row" press="addRow"/>
 						</WizardStep>
 						<!--#############################################House Property##################################################-->
 						<WizardStep id="housePropertyStep" validated="true" activate="housePropertyStep" title=" House Property">

@@ -23,6 +23,17 @@
 				"settings": {
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"userData": {
+				"uri": "",
+				"type": "JSON"
+			},
+			"Udetails": {
+				"uri": "/slogin/odata/v2/Udetails/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/Udetails/metadata.xml"
+				}
 			}
 		}
 	},
@@ -69,6 +80,10 @@
 					"bundleName": "com.app.tax.TaxApp-alpha.i18n.i18n"
 				}
 			},
+			"userData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "userData"
+			},
 			"login": {
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
@@ -77,6 +92,16 @@
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "Logon",
+				"preload": true
+			},
+			"userDetails": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "Udetails",
 				"preload": true
 			}
 		},

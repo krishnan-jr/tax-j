@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel"
+], function (Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("com.app.tax.TaxApp-alpha.controller.fileTax", {
@@ -11,8 +12,50 @@ sap.ui.define([
 		 * @memberOf com.app.tax.TaxApp-alpha.view.fileTax
 		 */
 		onInit: function () {
+			this.data = {
+				Products: [
+
+					{
+						slno: '001',
+						nat: 'type01',
+						desc: 'test01',
+						amt: '5001'
+					}, {
+						slno: '001',
+						nat: 'type02',
+						desc: 'test02',
+						amt: '5002'
+					}
+				]
+			};
+
+			this.jModel = new sap.ui.model.json.JSONModel();
+			this.jModel.setData(this.data);
 
 		},
+		onBeforeRendering: function () {
+			this.byId('ins').setModel(this.jModel);
+		},
+		addRow: function (oArg) {
+			this.data.Products.push({
+				slno: '',
+				nat: '',
+				desc: '',
+				amt: ''
+			});
+			this.jModel.refresh(); //which will add the new record
+		},
+		deleteRow: function (oArg) {
+			var deleteRecord = oArg.getSource().getBindingContext().getObject();
+			for (var i = 0; i < this.data.Products.length; i++) {
+				if (this.data.Products[i] == deleteRecord) {
+					//	pop this._data.Products[i] 
+					this.data.Products.splice(i, 1); //removing 1 record from i th index.
+					this.jModel.refresh();
+					break; //quit the loop
+				}
+			}
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

@@ -1,0 +1,10 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Udetails">
+			<EntityType Name="userDetails">
+				<Key><PropertyRef Name="email"/></Key><Property Name="email" Type="Edm.String" Nullable="false"/><Property Name="clientid" Type="Edm.Guid"/><Property Name="fname" Type="Edm.String"/><Property Name="mmame" Type="Edm.String"/><Property Name="lname" Type="Edm.String"/><Property Name="phone" Type="Edm.Int32"/><Property Name="pan" Type="Edm.Int32"/><Property Name="dob" Type="Edm.DateTime" sap:display-format="Date"/><Property Name="gender" Type="Edm.String"/><Property Name="aadharno" Type="Edm.Int32"/><Property Name="aadharen" Type="Edm.Int32"/><Property Name="addl1" Type="Edm.String"/><Property Name="addl2" Type="Edm.String"/><Property Name="addl3" Type="Edm.String"/><Property Name="area" Type="Edm.String"/><Property Name="town" Type="Edm.String"/><Property Name="pin" Type="Edm.Int32"/><Property Name="state" Type="Edm.String"/><Property Name="country" Type="Edm.String"/></EntityType>
+			<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true"><EntitySet Name="userDetails" EntityType="Udetails.userDetails"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
