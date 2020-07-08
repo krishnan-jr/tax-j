@@ -10,7 +10,7 @@
 			<VBox class="sapUiSmallMargin">
 				<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
 					columnsXL="2" labelSpanL="3.5" emptySpanL="4" columnsL="1" labelSpanM="2" emptySpanM="1" columnsM="1" labelSpanS="12" emptySpanS="0"
-					singleContainerFullSize="false" ariaLabelledBy="Title1" >
+					singleContainerFullSize="false" ariaLabelledBy="Title1">
 					<f:toolbar>
 						<Toolbar id="TB1">
 							<Title id="Title1" text="General Information"/>
@@ -87,7 +87,7 @@
 						<!--RadioButton saying if u have aadhar or not-->
 						<Label text="Do you have a Aadhar Card"/>
 						<RadioButtonGroup id="aadhar" columns="2" select="handleR2">
-							<RadioButton text="Yes" id="RB4" select='ay' />
+							<RadioButton text="Yes" id="RB4" select='ay'/>
 							<RadioButton text="No" id="RB5" select='an'/>
 						</RadioButtonGroup>
 						<!--Aadhaar Number-->
@@ -178,7 +178,6 @@
 							<core:Item text="Tripura" key="Tripura"/>
 							<core:Item text="Uttarakhand " key="Uttarakhand"/>
 							<core:Item text="West Bengal" key="West Bengal"/>
-							
 						</Select>
 						<!--Town/City/District-->
 						<Label/>

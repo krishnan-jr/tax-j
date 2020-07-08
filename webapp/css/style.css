@@ -17,16 +17,16 @@
 .rightVBoxStyle {
     margin-right: 10rem;
 }
-.btnCls{
-	margin-top: 1.3rem;
-	margin-left: 10px;
+
+.btnCls {
+    margin-top: 1.3rem;
+    margin-left: 10px;
 }
 
-.bold{
- font-weight: bold;
+.bold {
+    font-weight: bold;
 }
 
-.marginclass{
-	margin-left: 100%;
-	margin-right: 100%;
+.margRightTallowance {
+    margin-right: 61px !important;
 }
