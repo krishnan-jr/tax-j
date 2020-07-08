@@ -7,7 +7,7 @@
 }
 
 .HBoxStyle {
-    margin-top: 1rem;
+    margin-top: 15rem;
 }
 
 .leftVBoxStyle {
@@ -24,4 +24,9 @@
 
 .bold{
  font-weight: bold;
+}
+
+.marginclass{
+	margin-left: 100%;
+	margin-right: 100%;
 }

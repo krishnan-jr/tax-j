@@ -4,29 +4,56 @@
 		<pages>
 			<Page title="Title">
 				<content>
-					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-						adjustLabelSpan="true" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-						singleContainerFullSize="false">
-						<f:content>
-							<HBox justifyContent="Center" class="HBoxStyl" alignContent="Center" alignItems="Center">
-								<VBox class="leftVBoxStyle">
-									<Label text="First Name"/>
-									<Input value="{/fname}"/>
-								</VBox>
-								<VBox class="leftVBoxStyle">
-									<Label text="Email"/>
-									<Input value="{/email}"/>
-								</VBox>
-								<VBox class="leftVBoxStyle">
-									<Label text="Password"/>
-									<Input value="{/password}"/>
-								</VBox>
-								<VBox class="leftVBoxStyle btnCls">
-									<Button text="Add User" icon="sap-icon://add-employee" type="Emphasized"/>
-								</VBox>
-							</HBox>
-						</f:content>
-					</f:SimpleForm>
+					<FlexBox justifyContent="Center" class="sapUiLargeMarginTop">
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+							adjustLabelSpan="true" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+							singleContainerFullSize="false">
+							<f:content >
+								<HBox>
+									<VBox class="leftVBoxStyle">
+										<Label text="First Name"/>
+										<Input value="{/fname}"/>
+									</VBox>
+									<VBox class="leftVBoxStyle">
+										<Label text="Email"/>
+										<Input value="{/email}"/>
+									</VBox>
+									<VBox class="leftVBoxStyle">
+										<Label text="Password"/>
+										<Input value="{/password}"/>
+									</VBox>
+									<VBox class="leftVBoxStyle btnCls">
+										<Button text="Add User" icon="sap-icon://add-employee" type="Emphasized"/>
+									</VBox>
+								</HBox>
+							</f:content>
+						</f:SimpleForm>
+					</FlexBox>
+					<!--##################################table-content######################-->
+					<Table items="{}"  headerText="Existing Users">
+						<columns>
+							<Column width="30%">
+								<Text text="First Name"/>
+							</Column>
+							<Column width="40%">
+								<Text text="Email"/>
+							</Column>
+							<Column width="30%">
+								<Text text="Password"/>
+							</Column>
+							<Column width="5px"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input value="{slno}"/>
+									<Input value="{nat}"/>
+									<Input value="{desc}"/>
+									<Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
 				</content>
 			</Page>
 		</pages>
