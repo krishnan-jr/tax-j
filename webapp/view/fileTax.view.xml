@@ -91,7 +91,7 @@
 									<core:Title text=""/>
 									<Label text="5.Chargeable under Head Salaries (4-2)" class="bold">
 										<layoutData>
-											<l:GridData span="XL2 L6 M3 S4"/>
+											<l:GridData span="XL2 L6 M3 S12"/>
 										</layoutData>
 										<!-- sap.ui.core.LayoutData -->
 									</Label>
