@@ -5,7 +5,7 @@
 			<Page id="wizardContentPage" showHeader="false">
 				<content>
 					<Wizard id="CreateProductWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
-						<!--###############################################################################################-->
+						<!--#############################################################################################################-->
 						<WizardStep id="ProductTypeStep" title="General Information" validated="true">
 							<VBox class="sapUiSmallMargin">
 								<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
@@ -229,88 +229,147 @@
 										</layoutData>
 										<!-- sap.ui.core.LayoutData -->
 									</Label>
-								<Input placeholder="0.00" type="Number"/>
-							</f:content>
-						</f:SimpleForm>
-					</WizardStep>
-					<!--#############################################House Property##################################################-->
-					<WizardStep id="housePropertyStep" validated="true" activate="housePropertyStep" title=" House Property">
-						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-							adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-							singleContainerFullSize="false">
-							<f:content>
-								<Label text="Type of House Property" id="label_htyp"/>
-								<ComboBox id="htyp" width="50%">
-									<core:Item key="1" text="Self Occupied"/>
-									<core:Item key="2" text="Let Out"/>
-									<core:Item key="3" text="Deemed Let Out"/>
-								</ComboBox>
-								<Label text="i.Gross rent recieved/recievable/letable value during the year" id="label_grent"/>
-								<Input id="grent" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="ii.Tax paid to local authorities" id="label_lotax"/>
-								<Input id="lotax" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="iii.Annual Value (i-ii)" id="label_aval"/>
-								<Input id="aval" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="iv.30% of Annual Value" id="label_thaval"/>
-								<Input id="thaval" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="v.Interest payable on borrowed capital" id="label_intp"/>
-								<Input id="intp" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="vi. Arrears/Unrealized Rent recieved during the year Less 30%" id="label-arrent"/>
-								<Input id="arrent" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="vii. Income chargeable under the head 'House Property' (iii-iv-v)+vi" id="label_inchp"/>
-								<Input id="inchp" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Less: Deductions u/s 57(iia) (In case of family pension only" id="label_osded"/>
-								<Input id="osded" placeholder="0.00" type="Number"/>
-								<Label text="4.Gross Total Income(If loss, put the figure in negative) (1+2+3)" id="label_gtinco"/>
-								<Input id="gtinco" placeholder="0.00" type="Number"/>
-							</f:content>
-						</f:SimpleForm>
-					</WizardStep>
-					<WizardStep id="deductionsStep" validated="false" activate="deductionsStep" title="Deductions">
-						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-							adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-							singleContainerFullSize="false">
-							<f:content>
-								<Label text="Total Income (4-6)" id="label_totinc"/>
-								<Input id="totinc" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Tax Payable on Total Income" id="label_taxpay"/>
-								<Input id="taxpay" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Rebate u/s 87A" id="label_rebate"/>
-								<Input id="rebate" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Tax Payable After Rebate (8-9)" id="label_tpaftrbt"/>
-								<Input id="tpaftrbt" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Health and Education Cess @4% on (10)" id="label_hcess"/>
-								<Input id="hcess" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Total Tax and Cess (10+11)" id="label_ttaxcess"/>
-								<Input id="ttaxcess" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Relief u/s 89(Please ensure to submit Form 10E to claim this relief)" id="label_relf"/>
-								<Input id="relf" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Balance Tax after Relief(12-13)" id="label_baltax"/>
-								<Input id="baltax" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Interest u/s 234 A" id="label_intrsta"/>
-								<Input id="intrsta" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Interest u/s 234 B" id="label_intrstb"/>
-								<Input id="intrstb" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Interest u/s 234 C" id="label_intrstc"/>
-								<Input id="intrstc" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Fee u/s 234F" id="label_fee"/>
-								<Input id="fee" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Total Interest, Fee Payable (15a + 15b + 15c + 15d)" id="label_totint"/>
-								<Input id="totint" placeholder="0.00" type="Number" width="50%"/>
-								<Label text="Total Tax, Fee and Interest" id="label_tottax"/>
-								<Input id="tottax" placeholder="0.00" type="Number" width="50%"/>
-							</f:content>
-						</f:SimpleForm>
-					</WizardStep>
-				</Wizard>
-			</content>
-			<footer>
-				<OverflowToolbar>
-					<ToolbarSpacer/>
-					<Button text="Cancel" press="handleWizardCancel"/>
-				</OverflowToolbar>
-			</footer>
-		</Page>
-	</pages>
-</NavContainer>
+									<Input placeholder="0.00" type="Number"/>
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+						<!--#############################################House Property##################################################-->
+						<WizardStep id="housePropertyStep" validated="true" activate="housePropertyStep" title=" House Property and Income from other sources">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsM="2" labelSpanM="6" emptySpanM="1" emptySpanL="1" columnsL="2"
+								labelSpanL="6">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Type of House Property" id="label_htyp"/>
+									<ComboBox id="htyp">
+										<core:Item key="1" text="Self Occupied"/>
+										<core:Item key="2" text="Let Out"/>
+										<core:Item key="3" text="Deemed Let Out"/>
+									</ComboBox>
+									<Label text="1. Gross rent" id="label_grent"/>
+									<Input id="grent" placeholder="0.00" type="Number" editable="true" tooltip="Gross rent recieved/recievable/letable value during the year"/>
+									<Label text="2. Tax paid to local authorities" id="label_lotax"/>
+									<Input id="lotax" placeholder="0.00" type="Number"/>
+									<Label text="3. Annual Value (1-2)" id="label_aval"/>
+									<Input id="aval" placeholder="0.00" type="Number"/>
+									<core:Title text=""/>
+									<Label text="4. (30%) of Annual Value" id="label_thaval"/>
+									<Input id="thaval" placeholder="0.00" type="Number"/>
+									<Label text="5. Interest payable on borrowed capital" id="label_intp"/>
+									<Input id="intp" placeholder="0.00" type="Number"/>
+									<Label text="6. Arrears/Unrealized Rent" id="label-arrent"/>
+									<Input id="arrent" placeholder="0.00" type="Number" tooltip="Arrears/Unrealized Rent recieved during the year Less 30%"/>
+									<Label text="7. Income chargeable (3-4-5)+6" id="label_inchp"/>
+									<Input id="inchp" placeholder="0.00" type="Number" liveChange="pressInputHL8"
+										tooltip="Income chargeable under the head 'House Property' (3-4-5)+6"/>
+									<!--<Label text="Less: Deductions u/s 57(iia) (In case of family pension only" id="label_osded"/>-->
+									<!--<Input id="osded" placeholder="0.00" type="Number"/>-->
+									<!--<Label text="4.Gross Total Income(If loss, put the figure in negative) (1+2+3)" id="label_gtinco"/>-->
+									<!--<Input id="gtinco" placeholder="0.00" type="Number"/>-->
+								</f:content>
+							</f:SimpleForm>
+							<!--#############################################Table control for housing##################################################-->
+							<Title class="sapUiMediumMarginTop" text="Income from Other Sources "/>
+							<Table id="houseTable" items="{/Products}">
+								<columns>
+									<Column width="60px">
+										<Text text="SL.NO"/>
+									</Column>
+									<Column width="40%">
+										<Text text="Nature of Income"/>
+									</Column>
+									<Column width="30%">
+										<Text text="Description"/>
+									</Column>
+									<Column width="15%">
+										<Text text="Amount"/>
+									</Column>
+									<Column width="5%"></Column>
+								</columns>
+								<items>
+									<ColumnListItem >
+										<cells>
+											<!--<Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>-->
+											<Input value="{slno}"/>
+											<Input value="{nat}"/>
+											<Input value="{desc}"/>
+											<Input value="{amt}"/>
+											<Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<OverflowToolbar>
+								<Button icon="sap-icon://add" text="Row" press="addRow"/>
+								<ToolbarSpacer/>
+								<Label text="3.Total Income from other Socurces" labelFor="thousing" class="bold">
+									<layoutData>
+										<OverflowToolbarLayoutData group="2"/>
+									</layoutData>
+								</Label>
+								<Input width="15%" id="thousing" placeholder="0.00" type="Number" class="margRightTallowance">
+									<layoutData>
+										<OverflowToolbarLayoutData shrinkable="true" group="2" minWidth="150px"/>
+									</layoutData>
+								</Input>
+							</OverflowToolbar>
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsM="2" labelSpanM="6" emptySpanM="1" emptySpanL="1" columnsL="2"
+								labelSpanL="6">
+								<f:content>
+									<core:Title text=""/>
+									<Label text="Deduction u/s 57(iia)" class="bold"/>
+									<Input placeholder="0.00" type="Number"/>
+									<core:Title text=""/>
+									<Label text="Gross Total Income" class="bold"/>
+									<Input placeholder="0.00" type="Number" tooltip="Note: To avail the benefit of carry forward and set off of loss, please use ITR-2"/>
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+						<!--#############################################Deductions##################################################-->
+						<WizardStep id="deductionsStep" validated="false" activate="deductionsStep" title="Deductions">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false">
+								<f:content>
+									<Label text="Total Income (4-6)" id="label_totinc"/>
+									<Input id="totinc" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Tax Payable on Total Income" id="label_taxpay"/>
+									<Input id="taxpay" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Rebate u/s 87A" id="label_rebate"/>
+									<Input id="rebate" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Tax Payable After Rebate (8-9)" id="label_tpaftrbt"/>
+									<Input id="tpaftrbt" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Health and Education Cess @4% on (10)" id="label_hcess"/>
+									<Input id="hcess" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Tax and Cess (10+11)" id="label_ttaxcess"/>
+									<Input id="ttaxcess" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Relief u/s 89(Please ensure to submit Form 10E to claim this relief)" id="label_relf"/>
+									<Input id="relf" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Balance Tax after Relief(12-13)" id="label_baltax"/>
+									<Input id="baltax" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 A" id="label_intrsta"/>
+									<Input id="intrsta" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 B" id="label_intrstb"/>
+									<Input id="intrstb" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Interest u/s 234 C" id="label_intrstc"/>
+									<Input id="intrstc" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Fee u/s 234F" id="label_fee"/>
+									<Input id="fee" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Interest, Fee Payable (15a + 15b + 15c + 15d)" id="label_totint"/>
+									<Input id="totint" placeholder="0.00" type="Number" width="50%"/>
+									<Label text="Total Tax, Fee and Interest" id="label_tottax"/>
+									<Input id="tottax" placeholder="0.00" type="Number" width="50%"/>
+								</f:content>
+							</f:SimpleForm>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
 </mvc:View>
