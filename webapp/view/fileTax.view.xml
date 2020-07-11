@@ -5,184 +5,78 @@
 			<Page id="wizardContentPage" showHeader="false">
 				<content>
 					<Wizard id="CreateProductWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
-						<!--#############################################Deductions##################################################-->
-						<WizardStep id="deductionsStep" validated="true" activate="deductionsStep" title="Deductions">
-							<Title class="sapUiMediumMarginTop"
-								text="Part C – Deductions and Taxable Total Income (Refer instructions for Deduction limit as per Income-tax Act) "/>
-							<f:SimpleForm editable="true" labelSpanXL="4" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-								emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" layout="ColumnLayout">
-								<f:content>
-									<core:Title text=""/>
-									<Label
-										text="80C-Life insurance premia,deferred annuity,contributions to provident fund,subscription to certain equity shares or debentures, etc."
-										id="label_totinc"/>
-									<Input id="c80" placeholder="0.00" type="Number"/>
-									<Input id="sc80" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80CCC-Payment in respect Pension Fund " id="label_taxpay"/>
-									<Input id="ccc80" placeholder="0.00" type="Number"/>
-									<Input id="sccc80" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80CCD(1)-Contribution to pension scheme of Central Government " id="label_rebate"/>
-									<Input id="ccd801" placeholder="0.00" type="Number"/>
-									<Input id="sccd801" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80CCD(1B)-Contribution to pension scheme of Central Government" id="label_tpaftrbt"/>
-									<Input id="ccd801b" placeholder="0.00" type="Number"/>
-									<Input id="sccd801b" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80CCD(2)-Contribution to pension scheme of Central Government by employer " id="label_hcess"/>
-									<Input id="ccd802" placeholder="0.00" type="Number"/>
-									<Input id="sccd802" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80CCG-Investment made under an equity savings scheme " id="label_ttaxcess"/>
-									<Input id="ccg80" placeholder="0.00" type="Number"/>
-									<Input id="sccg80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80EE###-->
-									<Label text="80EE - Interest on loan taken for residential house property"/>
-									<Input id="ee80" placeholder="0.00" type="Number"/>
-									<Input id="see80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80GGC###-->
-									<Label text="80GGC-Donation to Political party"/>
-									<Input id="ggc80" placeholder="0.00" type="Number"/>
-									<Input id="sggc80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80TTA###-->
-									<Label text="80TTA - Interest on saving bank Accounts in case of other than Resident senior citizens"/>
-									<Input id="tta80" placeholder="0.00" type="Number"/>
-									<Input id="stta80" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label
-										text="80G-Donations to certain funds, charitable institutions, etc. (Please fill 80G Schedule. This field is auto-populated from schedule.) "></Label>
-									<Button text="80G"></Button>
-									<Input id="g80" placeholder="0.00" type="Number"/>
-									<Input id="sg80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###COL2###-->
-									<core:Title text=""/>
-									<!--####health related####-->
-									<!--###80DD###-->
-									<Label text="80DD-Maintenance including medical treatment of a dependent who is a person with disability"/>
-									<Input id="c80dd" placeholder="0.00" type="Number"/>
-									<Input id="dd80" placeholder="0.00" type="Number"/>
-									<Input id="sdd80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80DDB###-->
-									<Label text="80DDB-Medical treatment of specified disease"/>
-									<Input id="c80ddb" placeholder="0.00" type="Number"/>
-									<Input id="dd80b" placeholder="0.00" type="Number"/>
-									<Input id="sdd80b" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80D###-->
-									<Label text="80D-A.Health insurance premium " id="label_relf"/>
-									<Input id="chip80d" placeholder="0.00" type="Number"/>
-									<Input id="a80d" placeholder="0.00" type="Number"/>
-									<Input id="sa80d" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80D-B.Medical expenditure " id="label_baltax"/>
-									<Input id="cme80d" placeholder="0.00" type="Number"/>
-									<Input id="me80d" placeholder="0.00" type="Number"/>
-									<Input id="sme80d" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label text="80D-C.Preventive health check-up " id="label_intrsta"/>
-									<Input id="cphc80d" placeholder="0.00" type="Number"/>
-									<Input id="phc80d" placeholder="0.00" type="Number"/>
-									<Input id="sphc80d" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80E###-->
-									<Label text="80E-Interest on loan taken for higher education"/>
-									<Input id="e80" placeholder="0.00" type="Number"/>
-									<Input id="se80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80GG###-->
-									<Label text="80GG - Rent paid"/>
-									<Input id="gg80" placeholder="0.00" type="Number"/>
-									<Input id="sgg80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80GG###-->
-									<Label text="80TTB-Interest on deposits in case of Resident senior citizens"/>
-									<Input id="ttb80" placeholder="0.00" type="Number"/>
-									<Input id="sttb80" placeholder="System Calculated" editable="false" type="Number"/>
-									<!--###80U###-->
-									<Label text="80U - In case of a person with disability"/>
-									<Input id="cu80" placeholder="0.00" type="Number"/>
-									<Input id="u80" placeholder="0.00" type="Number"/>
-									<Input id="su80" placeholder="System Calculated" editable="false" type="Number"/>
-									<Label
-										text="80GGA - Certain donations for scientific research or rural development (Please fill 80GGA Schedule. This field is auto-populated from schedule.) "/>
-									<Button text="File 80GGA"></Button>
-									<Input id="gga80" placeholder="0.00" type="Number"/>
-									<Input id="sgga80" placeholder="System Calculated" editable="false" type="Number"/>
-								</f:content>
-							</f:SimpleForm>
-						</WizardStep>
 						<!--#################################################Step 1#######################################################-->
 						<WizardStep id="ProductTypeStep" title="General Information" validated="true">
-							<VBox class="sapUiSmallMargin">
-								<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" labelSpanXL="4" emptySpanXL="0"
-									columnsXL="2" labelSpanL="3.5" emptySpanL="4" columnsL="1" labelSpanM="2" emptySpanM="1" columnsM="1" labelSpanS="12" emptySpanS="0"
-									singleContainerFullSize="false" ariaLabelledBy="Title1">
-									<f:content>
-										<Label text="Name"/>
-										<Text text="First Name">
-											<layoutData>
-												<l:GridData span="XL2 L2 M3 S4"/>
-											</layoutData>
-										</Text>
-										<!--<Input id="nameFirst" placeholder="First Name">-->
-										<!--	<layoutData>-->
-										<!--		<l:GridData span="XL2 L2 M3 S4"/>-->
-										<!--	</layoutData>-->
-										<!--</Input>-->
-										<Text text="Middle Name">
-											<layoutData>
-												<l:GridData span="XL2 L2 M3 S4"/>
-											</layoutData>
-										</Text>
-										<Text text="Last Name">
-											<layoutData>
-												<l:GridData span="XL2 L2 M3 S4"/>
-											</layoutData>
-										</Text>
-										<!--<Input id="nameLast" placeholder="Last Name" required="true">-->
-										<!--	<layoutData>-->
-										<!--		<l:GridData span="XL2 L2 M3 S4"/>-->
-										<!--	</layoutData>-->
-										<!--</Input>-->
-										<!--Date Of Birth-->
-										<Label text="Date Of Birth"/>
-										<!--HARDCODED-->
-										<Text text="{dateofbirth}04-11-1996"/>
-										<!--gender-->
-										<Label text="Gender"/>
-										<!--HARDCODED-->
-										<Text text="{gender}"/>
-										<!--email-->
-										<Label text="E-mail"/>
-										<!--HARDCODED-->
-										<Text text="{email}something@email.com"/>
-										<!--phone no-->
-										<Label text="Mobile No"/>
-										<!--HARDCODED-->
-										<Text text="{phone}9400176157"/>
-										<Label text="Pan No"/>
-										<!--HARDCODED-->
-										<Text text="{pan}9400176157"/>
-										<Label text="Aadhaar Number"/>
-										<!--HARDCODED-->
-										<Text text="{aadhar}(XXXX-XXXX-XXXX)"/>
-										<!--address-->
-										<Label text="Permanent Address"/>
-										<!--HARDCODED-->
-										<Text text="{line1}Flat/Door/Block No {line2}Premises/Building/Village"/>
-										<Label/>
-										<!--HARDCODED-->
-										<Text text="{line3}Road/Street/Post Office {line4}Area/Locality"/>
-										<!--Town/City/District-->
-										<Label/>
-										<!--HARDCODED-->
-										<Text text="{town}Town/City/District {pincode}Pincode"/>
-										<!--State-->
-										<Label/>
-										<!--HARDCODED-->
-										<Text text="{State}State"/>
-										<Label/>
-										<Text text="{Country}India"/>
-									</f:content>
-								</f:SimpleForm>
-							</VBox>
-						</WizardStep>
-						<!--#############################################Employement##################################################-->
-						<WizardStep id="ProductInfoStep" validated="true" title="Employement" activate="additionalInfoValidation">
-							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-								singleContainerFullSize="false">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsM="1" labelSpanM="2" emptySpanM="1" emptySpanL="1" columnsL="1"
+								labelSpanL="2">
 								<f:content>
+									<Label text="Name"/>
+									<Input>
+										<!--<layoutData>-->
+										<!--	<l:GridData span="XL2 L2 M3 S12"/>-->
+										<!--</layoutData>-->
+									</Input>
+									<Input>
+										<!--<layoutData>-->
+										<!--	<l:GridData span="XL2 L2 M3 S12"/>-->
+										<!--</layoutData>-->
+									</Input>
+									<Input>
+										<!--<layoutData>-->
+										<!--	<l:GridData span="XL2 L2 M3 S12"/>-->
+										<!--</layoutData>-->
+									</Input>
+									<!--Date Of Birth-->
+									<Label text="Date Of Birth"/>
+									<!--HARDCODED-->
+									<Text text="{dateofbirth}04-11-1996"/>
+									<!--gender-->
+									<Label text="Gender"/>
+									<!--HARDCODED-->
+									<Text text="{gender}"/>
+									<!--email-->
+									<Label text="E-mail"/>
+									<!--HARDCODED-->
+									<Text text="something@email.com"/>
+									<!--phone no-->
+									<Label text="Mobile No"/>
+									<!--HARDCODED-->
+									<Text text="{phone}9400176157"/>
+									<Label text="Pan No"/>
+									<!--HARDCODED-->
+									<Text text="{pan}9400176157"/>
+									<Label text="Aadhaar Number"/>
+									<!--HARDCODED-->
+									<Text text="{aadhar}(XXXX-XXXX-XXXX)"/>
+									<!--address-->
+									<Label text="Permanent Address"/>
+									<!--HARDCODED-->
+									<Text text="Flat/Door/Block No Premises/Building/Village"/>
+									<Label/>
+									<!--HARDCODED-->
+									<Text text="Road/Street/Post Office Area/Locality"/>
+									<!--Town/City/District-->
+									<Label/>
+									<!--HARDCODED-->
+									<Input/>
+									<!--State-->
+									<Label/>
+									<!--HARDCODED-->
+									<Input/>
+									<Label/>
+									<Input/>
+								</f:content>
+							</f:SimpleForm>
+							<!--</WizardStep>-->
+							<!--#############################################Employement##################################################-->
+							<!--<WizardStep id="ProductInfoStep" validated="true" title="Employement" activate="additionalInfoValidation">-->
+							<!--<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"-->
+							<!--	adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"-->
+							<!--	singleContainerFullSize="false">-->
+							<f:SimpleForm title="Nature of Employment and Filing" editable="true" layout="ResponsiveGridLayout" columnsM="2" labelSpanM="5"
+								emptySpanM="0" emptySpanL="0" columnsL="2" labelSpanL="4">
+								<f:content>
+									<core:Title text=""/>
 									<Label text="Nature of Employment" required="true"/>
 									<Select selectedKey="{/employement}">
 										<core:Item key="Na" text="Not Applicable (eg. Family pension etc)"/>
@@ -190,14 +84,18 @@
 										<core:Item key="pub" text="Public Sector Undertaking"/>
 										<core:Item key="oth" text="Others"/>
 										<core:Item key="pen" text="Pensioners"/>
+										<layoutData>
+											<l:GridData span="XL2 L7 M7 S12"/>
+										</layoutData>
 									</Select>
 									<Label/>
 									<RadioButtonGroup id="file" columns="4">
 										<RadioButton text="Filed U/S" id="RB1"/>
 										<RadioButton text="Filed in response to notice U/S" id="RB5"/>
 									</RadioButtonGroup>
+									<core:Title text=""/>
 									<Label text="Filing"/>
-									<Select selectedKey="{/file}">
+									<Select selectedKey="{/file}" width="70%">
 										<core:Item key="select" text="Select"/>
 										<core:Item key="139" text="139(9)"/>
 										<core:Item key="142" text="142(1)"/>
@@ -207,24 +105,25 @@
 									</Select>
 								</f:content>
 							</f:SimpleForm>
-							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-								singleContainerFullSize="false">
+							<f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsM="2" labelSpanM="6" emptySpanM="1" emptySpanL="1" columnsL="2"
+								labelSpanL="6">
 								<f:content>
-									<Text text="If revised/defective" class="bold18">
-										<layoutData>
-											<l:GridData span="XL12 L12 M12 S12"/>
-										</layoutData>
-									</Text>
+									<core:Title text="If revised/defective"/>
+									<!--<Text text="If revised/defective" class="bold18">-->
+									<!--	<layoutData>-->
+									<!--		<l:GridData span="XL12 L12 M12 S12"/>-->
+									<!--	</layoutData>-->
+									<!--</Text>-->
 									<Label text="Receipt Number"/>
 									<Input id="receipt"></Input>
 									<Label text="Date of Filing Original Return"/>
 									<Input id="date1"></Input>
-									<Text text="If filed in response to notice u/s 139(9)/142(1)/148/153A/153C or order u/s 119(2)(b)" class="bold18">
-										<layoutData>
-											<l:GridData span="XL12 L12 M12 S12"/>
-										</layoutData>
-									</Text>
+									<core:Title text="If filed in response to notice u/s 139(9)/142(1)/148/153A/153C or order u/s 119(2)(b)"/>
+									<!--<Text text="If filed in response to notice u/s 139(9)/142(1)/148/153A/153C or order u/s 119(2)(b)" class="bold18">-->
+									<!--	<layoutData>-->
+									<!--		<l:GridData span="XL12 L12 M12 S12"/>-->
+									<!--	</layoutData>-->
+									<!--</Text>-->
 									<Label text="Unique Number "/>
 									<Input id="receipt2"></Input>
 									<Label text="Date of such Notice or Order"/>
@@ -420,16 +319,120 @@
 								</f:content>
 							</f:SimpleForm>
 						</WizardStep>
-						<!--####paste deduction here####-->
-					</Wizard>
-				</content>
-				<footer>
-					<OverflowToolbar>
-						<ToolbarSpacer/>
-						<Button text="Cancel" press="handleWizardCancel"/>
-					</OverflowToolbar>
-				</footer>
-			</Page>
-		</pages>
-	</NavContainer>
-</mvc:View>
+						<!--#############################################Deductions##################################################-->
+						<WizardStep id="deductionsStep" validated="true" activate="deductionsStep" title="Deductions">
+							<Title class="sapUiMediumMarginTop"
+								text="Part C – Deductions and Taxable Total Income (Refer instructions for Deduction limit as per Income-tax Act) "/>
+							<f:SimpleForm editable="true" labelSpanXL="4" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" layout="ColumnLayout">
+								<f:content>
+									<core:Title text=""/>
+									<Label
+										text="80C-Life insurance premia,deferred annuity,contributions to provident fund,subscription to certain equity shares or debentures, etc."
+										id="label_totinc"/>
+									<Input id="c80" placeholder="0.00" type="Number"/>
+									<Input id="sc80" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label text="80CCC-Payment in respect Pension Fund " id="label_taxpay"/>
+									<Input id="ccc80" placeholder="0.00" type="Number"/>
+									<Input id="sccc80" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label text="80CCD(1)-Contribution to pension scheme of Central Government " id="label_rebate"/>
+									<Input id="ccd801" placeholder="0.00" type="Number"/>
+									<Input id="sccd801" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label text="80CCD(1B)-Contribution to pension scheme of Central Government" id="label_tpaftrbt"/>
+									<Input id="ccd801b" placeholder="0.00" type="Number"/>
+									<Input id="sccd801b" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label text="80CCD(2)-Contribution to pension scheme of Central Government by employer " id="label_hcess"/>
+									<Input id="ccd802" placeholder="0.00" type="Number"/>
+									<Input id="sccd802" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label text="80CCG-Investment made under an equity savings scheme " id="label_ttaxcess"/>
+									<Input id="ccg80" placeholder="0.00" type="Number"/>
+									<Input id="sccg80" placeholder="System Calculated" editable="false" type="Number"/>
+									<!--###80EE###-->
+									<Label text="80EE - Interest on loan taken for residential house property"/>
+									<Input id="ee80" placeholder="0.00" type="Number"/>
+									<Input id="see80" placeholder="System Calculated" editable="false" type="Number"/>
+									<!--###80GGC###-->
+									<Label text="80GGC-Donation to Political party"/>
+									<Input id="ggc80" placeholder="0.00" type="Number"/>
+									<Input id="sggc80" placeholder="System Calculated" editable="false" type="Number"/>
+									<!--###80TTA###-->
+									<Label text="80TTA - Interest on saving bank Accounts in case of other than Resident senior citizens"/>
+									<Input id="tta80" placeholder="0.00" type="Number"/>
+									<Input id="stta80" placeholder="System Calculated" editable="false" type="Number"/>
+									<Label
+										text="80G-Donations to certain funds, charitable institutions, etc. (Please fill 80G Schedule. This field is auto-populated from schedule.) "></Label>
+									<Button text="Fill 80G"></Button>
+									<Input id="g80" placeholder="0.00" type="Number"/>
+									<Input id="sg80" placeholder="System Calculated" editable="false" type="Number"/>
+									<!--###COL2###-->
+									<core:Title text=""/>
+										<!--####health related####-->
+										<!--###80DD###-->
+										<Label text="80DD-Maintenance including medical treatment of a dependent who is a person with disability"/>
+										<Input id="c80dd" placeholder="0.00" type="Number"/>
+										<Input id="dd80" placeholder="0.00" type="Number"/>
+										<Input id="sdd80" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80DDB###-->
+										<Label text="80DDB-Medical treatment of specified disease"/>
+										<Input id="c80ddb" placeholder="0.00" type="Number"/>
+										<Input id="dd80b" placeholder="0.00" type="Number"/>
+										<Input id="sdd80b" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80D###-->
+										<Label text="80D-A.Health insurance premium " id="label_relf"/>
+										<Input id="chip80d" placeholder="0.00" type="Number"/>
+										<Input id="a80d" placeholder="0.00" type="Number"/>
+										<Input id="sa80d" placeholder="System Calculated" editable="false" type="Number"/>
+										<Label text="80D-B.Medical expenditure " id="label_baltax"/>
+										<Input id="cme80d" placeholder="0.00" type="Number"/>
+										<Input id="me80d" placeholder="0.00" type="Number"/>
+										<Input id="sme80d" placeholder="System Calculated" editable="false" type="Number"/>
+										<Label text="80D-C.Preventive health check-up " id="label_intrsta"/>
+										<Input id="cphc80d" placeholder="0.00" type="Number"/>
+										<Input id="phc80d" placeholder="0.00" type="Number"/>
+										<Input id="sphc80d" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80E###-->
+										<Label text="80E-Interest on loan taken for higher education"/>
+										<Input id="e80" placeholder="0.00" type="Number"/>
+										<Input id="se80" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80GG###-->
+										<Label text="80GG - Rent paid"/>
+										<Input id="gg80" placeholder="0.00" type="Number"/>
+										<Input id="sgg80" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80GG###-->
+										<Label text="80TTB-Interest on deposits in case of Resident senior citizens"/>
+										<Input id="ttb80" placeholder="0.00" type="Number"/>
+										<Input id="sttb80" placeholder="System Calculated" editable="false" type="Number"/>
+										<!--###80U###-->
+										<Label text="80U - In case of a person with disability"/>
+										<Input id="cu80" placeholder="0.00" type="Number"/>
+										<Input id="u80" placeholder="0.00" type="Number"/>
+										<Input id="su80" placeholder="System Calculated" editable="false" type="Number"/>
+										<Label
+											text="80GGA - Certain donations for scientific research or rural development (Please fill 80GGA Schedule. This field is auto-populated from schedule.) "/>
+										<Button text="Fill 80GGA"></Button>
+										<Input id="gga80" placeholder="0.00" type="Number"/>
+										<Input id="sgga80" placeholder="System Calculated" editable="false" type="Number" tooltip="System Calculated"/>
+										<!--###Total###-->
+										<core:Title text=""/>
+										<Label text="Total Deductions" class="bold"/>
+										<Input id="tDeduction" placeholder="0.00" type="Number" editable="false"/>
+										<Input id="stDeduction" placeholder="0.00" type="Number" editable="false" tooltip="System Calculated"/>
+										<core:Title text=""/>
+										<Label text="Total Income" class="bold"/>
+										<Input id="tIncome" placeholder="0.00" type="Number" editable="false"/>
+										<Input id="stIncome" placeholder="0.00" type="Number" editable="false" tooltip="System Calculated"/>
+									</f:content>
+								</f:SimpleForm>
+							</WizardStep>
+						</Wizard>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button text="Cancel" press="handleWizardCancel"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</NavContainer>
+	</mvc:View>

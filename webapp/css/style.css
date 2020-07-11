@@ -27,6 +27,10 @@
     font-weight: bold;
 }
 
+.adjustTopMargin{
+	margin-top: -100px;
+}
+
 .margRightTallowance {
     margin-right: 61px !important;
 }
